@@ -14,7 +14,14 @@ The mobile app itself has not been added because it is under development.
 <img src="https://img.shields.io/badge/pytest-7.1.2-green" alt="Pytest 7.1.2">
 
 ### ⚡ Installation:
+* <a link href="https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html">Download</a> 
+and install Java 8 (cuz Android uiautomatorviewer supported only)
 
-Run in terminal of your IDE:
+* Configurate Appium server:
+![](readme/appium_config.jpg)
+
+* Start server.
+
+* Run in terminal of your IDE:
 
 `pip install -r .\requirments.txt`

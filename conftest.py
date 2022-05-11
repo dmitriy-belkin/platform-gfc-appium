@@ -4,8 +4,6 @@ import pytest
 import base64
 import time
 
-
-
 from appium import webdriver
 
 
@@ -16,9 +14,9 @@ def driver():
     """
     desired_capabilities = {
         "platformName": "Android",
-        "platformVersion": "11",
+        "platformVersion": "12",
         "deviceName": "Android Emulator",
-        "app": "C:/app.apk",
+        "app": "C:/app-release.apk",
     }
     driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_capabilities=desired_capabilities)
     yield driver
