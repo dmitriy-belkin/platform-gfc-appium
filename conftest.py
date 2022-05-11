@@ -5,6 +5,9 @@ import base64
 import time
 
 from appium import webdriver
+from appium.webdriver.common.appiumby import AppiumBy
+from appium.webdriver.common.touch_action import TouchAction
+from selenium.webdriver.common.by import By
 
 
 @pytest.fixture(name="driver", scope="session")
@@ -36,3 +39,16 @@ def recorder(driver):
     filepath = os.path.join(str(project) + "/reports/" + str(video_name) + ".mp4")
     with open(filepath, "wb") as vd:
         vd.write(base64.b64decode(video_rawdata))
+
+
+@pytest.fixture(scope="class")
+def prepare(driver):
+    """
+    Подготовка к тестированию
+    Перед началом тестирования происходит авторизация
+    По кончанию тестирования - разлогин
+    """
+    driver.tap([(760, 2700)])
+    time.sleep(5)
+    driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[normalize-space(@text) = 'Профиль']")
+    time.sleep(20)
