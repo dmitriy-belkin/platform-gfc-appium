@@ -41,14 +41,20 @@ def recorder(driver):
         vd.write(base64.b64decode(video_rawdata))
 
 
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="function")
 def prepare(driver):
     """
     Подготовка к тестированию
     Перед началом тестирования происходит авторизация
     По кончанию тестирования - разлогин
     """
-    driver.tap([(760, 2700)])
+    time.sleep(2)
+    driver.find_element_by_accessibility_id("Продолжить").click()
+    time.sleep(2)
+    driver.find_element_by_accessibility_id("Профиль, Вкладка 4 из 5").click()
+    time.sleep(2)
+    driver.tap([(700, 600)])
+    #driver.find_element_by_accessibility_id("E-mail")
     time.sleep(5)
-    driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[normalize-space(@text) = 'Профиль']")
-    time.sleep(20)
+    #driver.find_element(By.NAME, "E-mail").send_keys('demetrius.belkin@gmail.com')
+    time.sleep(15)
